@@ -9,26 +9,19 @@
           <i class="search icon"></i>
           <select multiple="" name="skills" class="ui normal search dropdown">
             <option value="">Departments</option>
-          <option value="angular">Underwriting</option>
-          <option value="css">Sales</option>
-          <option value="design">IT</option>
-          <option value="ember">Accounting</option>
-          <option value="html">HR</option>
+          <option *ngFor="let department of departments" value="department">{{department}}</option>
           </select>
           <select multiple="" name="lob" class="ui normal search dropdown">
             <option value="">Businesses</option>
-          <option value="angular">Surety</option>
-          <option value="css">Marine</option>
-          <option value="design">abc</option>
-          <option value="ember">def</option>
-          <option value="html">ghi</option>
+          <option *ngFor="let business of lobs" value="business">{{business}}</option>
           </select>
           <select multiple="" name="Region" class="ui normal search dropdown">
             <option value="">Region</option>
-          <option value="angular">North</option>
-          <option value="css">East</option>
-          <option value="design">South</option>
-          <option value="ember">West</option>
+            <option *ngFor="let region of regions" value="business">{{region}}</option>
+          </select>
+          <select multiple="" name="Position" class="ui normal search dropdown">
+            <option value="">Position</option>
+            <option *ngFor="let position of titles" value="business">{{position}}</option>
           </select>
           <div class="ui olive button">Search</div>
       </div>
@@ -48,7 +41,7 @@
         <tr *ngFor="let employee of employees" (click)="openModal(employee)">
           <td>
             <h4 class="ui image header">
-              <img src="../../../assets/avatars/avatar.png" class="ui mini rounded image">
+              <img [src]="this.employee?.imgUrl" class="ui mini rounded image">
               <div class="content">
                 {{employee.firstName}}
                 <div class="sub header">Human Resources
@@ -73,10 +66,10 @@
     </div>
     <div class="image small content">
       <div class="ui small image">
-        <img src="../../../assets/avatars/avatar.png">
+        <img [src]="this.currentEmployee?.imgUrl">
       </div>
       <div class="description" style="width: 100%;">
-        <div class="ui header">{{this.currentEmployee.firstName + ' ' + this.currentEmployee.lastName}}</div>
+        <div class="ui header">{{this.currentEmployee?.firstName + ' ' + this.currentEmployee?.lastName}}</div>
         <div class="ui list">
           <div class="ui grid">
             <div class="two column row">
@@ -84,19 +77,19 @@
                 <div class="item">
                   <i class="certificate icon"></i>
                   <div class="content">
-                    {{this.currentEmployee.title}}
+                    {{this.currentEmployee?.title}}
                   </div>
                 </div>
                 <div class="item">
                   <i class="building icon"></i>
                   <div class="content">
-                    {{this.currentEmployee.department + ' Department'}}
+                    {{this.currentEmployee?.department + ' Department'}}
                   </div>
                 </div>
                 <div class="item">
                   <i class="industry icon"></i>
                   <div class="content">
-                    {{this.currentEmployee.lineOfBusiness + ' Business'}}
+                    {{this.currentEmployee?.lineOfBusiness + ' Business'}}
                   </div>
                 </div>
 
@@ -105,19 +98,19 @@
                 <div class="item">
                   <i class="mail icon"></i>
                   <div class="content">
-                    <a style="background-color: white;">{{this.currentEmployee.email}}</a>
+                    <a style="background-color: white;">{{this.currentEmployee?.email}}</a>
                   </div>
                 </div>
                 <div class="item">
                   <i class="phone icon"></i>
                   <div class="content">
-                    <a style="background-color: white;">{{this.currentEmployee.phone}}</a>
+                    <a style="background-color: white;">{{this.currentEmployee?.phone}}</a>
                   </div>
                 </div>
                 <div class="item">
                   <i class="marker icon"></i>
                   <div class="content">
-                    {{this.currentEmployee.region + ' Region: ' + this.currentEmployee.city + ', ' + this.currentEmployee.state}}
+                    {{this.currentEmployee?.region + ' Region: ' + this.currentEmployee?.city + ', ' + this.currentEmployee?.state}}
                   </div>
                 </div>
               </div>

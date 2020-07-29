@@ -1,4 +1,4 @@
-export class Employee {
+export interface Employee {
   firstName: string;
   lastName: string;
   email: string;
@@ -9,6 +9,7 @@ export class Employee {
   department: string;
   lineOfBusiness: string;
   title: string;
+  imgUrl?: string;
 }
 
 /*
