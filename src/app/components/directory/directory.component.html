@@ -4,27 +4,50 @@
         <h1 class="ui header" style="margin-bottom: 30px;">Employee Directory</h1>
       </div>
       <div class="flex-container" style="margin-bottom: 40px;">
+        <form>
         <div class="ui large action left icon input">
-          <input type="text" placeholder="Search by name...">
+          <input name="name" type="text" placeholder="Search by name..." #name>
           <i class="search icon"></i>
-          <select multiple="" name="skills" class="ui normal search dropdown">
-            <option value="">Departments</option>
-          <option *ngFor="let department of departments" value="department">{{department}}</option>
-          </select>
-          <select multiple="" name="lob" class="ui normal search dropdown">
-            <option value="">Businesses</option>
-          <option *ngFor="let business of lobs" value="business">{{business}}</option>
-          </select>
-          <select multiple="" name="Region" class="ui normal search dropdown">
-            <option value="">Region</option>
-            <option *ngFor="let region of regions" value="business">{{region}}</option>
-          </select>
-          <select multiple="" name="Position" class="ui normal search dropdown">
-            <option value="">Position</option>
-            <option *ngFor="let position of titles" value="business">{{position}}</option>
-          </select>
-          <div class="ui olive button">Search</div>
+
+          <div class="ui multiple selection dropdown">
+            <input name="depart" type="hidden" #depart>
+            <i class="dropdown icon"></i>
+            <div class="default text">Departments</div>
+            <div class="menu">
+              <div class="item" *ngFor="let department of departments" [attr.data-value]="department">{{department}}</div>
+            </div>
+          </div>
+
+          <div class="ui multiple selection dropdown">
+            <input name="business" type="hidden" #businessesVar>
+            <i class="dropdown icon"></i>
+            <div class="default text">Business</div>
+            <div class="menu">
+              <div class="item" *ngFor="let business of lobs" [attr.data-value]="business">{{business}}</div>
+            </div>
+          </div>
+
+          <div class="ui multiple selection dropdown">
+            <input name="regions" type="hidden" #regionsVar>
+            <i class="dropdown icon"></i>
+            <div class="default text">Region</div>
+            <div class="menu">
+              <div class="item" *ngFor="let region of regions" [attr.data-value]="region">{{region}}</div>
+            </div>
+          </div>
+
+          <div class="ui multiple selection dropdown">
+            <input name="positions" type="hidden" #positionsVar>
+            <i class="dropdown icon"></i>
+            <div class="default text">Position</div>
+            <div class="menu">
+              <div class="item" *ngFor="let position of titles" [attr.data-value]="position">{{position}}</div>
+            </div>
+          </div>
+
+          <div (click)="filterEmployees(name.value, depart.value, businessesVar.value, regionsVar.value, positionsVar.value)" class="ui olive button">Search</div>
       </div>
+    </form>
       </div>
 
     <table class="ui very basic selectable table">
@@ -38,13 +61,13 @@
         <th>Email</th>
       </tr></thead>
       <tbody>
-        <tr *ngFor="let employee of employees" (click)="openModal(employee)">
+        <tr *ngFor="let employee of displayedEmployees" (click)="openModal(employee)">
           <td>
             <h4 class="ui image header">
               <img [src]="this.employee?.imgUrl" class="ui mini rounded image">
               <div class="content">
                 {{employee.firstName}}
-                <div class="sub header">Human Resources
+                <div class="sub header">{{employee.title}}
               </div>
             </div>
           </h4></td>
