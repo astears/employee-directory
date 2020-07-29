@@ -3,17 +3,22 @@
   <div class="left">
     <img src="../../../assets/logo.png" class="logo">
     <div class="login-center">
-      <form class="mx-auto">
+      <form (ngSubmit)="login(form.value)" class="mx-auto" #form="ngForm">
         <h3>Log in</h3>
-        <div class="form-group mt-4">
-          <input type="email" class="form-control form-control-lg" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
-        </div>
+        <div class="ui input" style="margin-bottom: 15px;">
+          <input name="username" type="text" class="ui input" id="username" placeholder="Username" ngModel>
+        </div><br>
+        <div class="ui input" style="margin-bottom: 15px;">
+          <input name="password" type="password" class="ui input" id="password" placeholder="Password" ngModel>
+        </div><br>
         <small>Forgot your password?</small>
         <br>
-        <button type="button" class="btn green-btn mt-3 w-75">Log In</button>
+        <button type="submit" class="ui button olive" style="margin-top: 15px;">Log In</button>
+        <div *ngIf="showError" class="ui error message">
+          <div class="header">
+            Incorrect Password
+          </div>
+        </div>
       </form>
     </div>
   </div>

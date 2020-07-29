@@ -61,6 +61,11 @@ small {
   color: white;
 }
 
+.green-btn#hover {
+  background-color: rgba(123, 170, 56, 0.877) !important;
+  color: white;
+}
+
 .logo {
   position: absolute;
   left: 10%;
