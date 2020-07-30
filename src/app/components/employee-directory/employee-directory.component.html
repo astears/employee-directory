@@ -1,5 +1,51 @@
 
-<div class="layout">
+
+<div class="ui mobile reversed stackable two column grid" style="margin: 0px;">
+
+  <div class="column" style="padding: 0px;">
+    <div class="flex-vertical-center full-height">
+      <img src="../../../assets/logo.png" class="logo" style="margin-left: 50px; margin-top: 15px;">
+      <form (ngSubmit)="login(form.value)" class="mw-50" style="margin: auto;"#form="ngForm">
+        <div class="">
+          <h3 class="medium-text">Log in</h3>
+          <div class="ui input w-100 mb-25">
+            <input name="username" type="text" class="ui input" id="username" placeholder="Username" ngModel>
+          </div><br>
+          <div class="ui input mb-25">
+            <input name="password" type="password" class="ui input" id="password" placeholder="Password" ngModel><br>
+          </div><br>
+          <small>Forgot your password?</small><br>
+          <button type="submit" class="ui button olive" style="margin-top: 15px;">Log In</button>
+          <div *ngIf="showError" class="ui error message">
+            <div class="header">
+              Incorrect Password
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="column" style="padding: 0px;">
+    <div class="background-wrapper flex-vertical-center">
+      <div class="flex-horizontal-center mb-25">
+        <div class="large-text white-text">
+          <p class="mb-10">Employee</p>
+          <p class="mb-10">Management</p>
+          <p>Portal</p>
+        </div>
+      </div>
+      <div class="flex-horizontal-center">
+        <div class="medium-text white-text w-50">
+          <p>Database with profiles of each employee. The database can be filtered by region and area. A quick search bar is also included.</p>
+        </div>
+      </div>
+</div>
+  </div>
+
+</div>
+
+<!--<div class="layout">
   <div class="left">
     <img src="../../../assets/logo.png" class="logo">
     <div class="login-center">
@@ -33,4 +79,4 @@
           <p>Database with profiles of each employee. The database can be filtered by region and area. A quick search bar is also included.</p>
         </div>
       </div>
-</div>
+</div>-->

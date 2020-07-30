@@ -23,7 +23,9 @@ export class DirectoryComponent implements OnInit {
   constructor() {
     console.log(this.employees);
     for (let i = 0; i < this.employees.length; i++) {
-      this.employees[i].imgUrl = '../../../assets/avatars/avatar (' + this.getNumber() + ').png';
+      if (this.employees[i].imgUrl === undefined) {
+        this.employees[i].imgUrl = '../../../assets/avatars/avatar (' + this.getNumber() + ').png';
+      }
     }
    }
 
