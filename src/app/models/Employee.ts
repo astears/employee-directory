@@ -25,9 +25,9 @@ JSON Generator: https://www.json-generator.com/
     state: '{{state()}}',
     city: '{{city()}}',
     region: '{{random("North", "East", "South", "West")}}',
-    department: '{{random("Finance", "HR", "Specialty", "Opus Management", "Personal Lines", "Claims", "Compliance")}}',
+    department: '{{random("Underwriting", "Finance", "HR", "Specialty", "Opus Management", "Personal Lines", "Claims", "Compliance")}}',
     lineOfBusiness: '{{random("Surety", "Marine", "Auto", "Healthcare", "Programs", "E&S", "Cyber", "H.S.I")}}',
-    title: '{{random("Manager", "Trainee", "Executive Underwriter", "AVP Underwriter", "Underwriter")}}'
+    title: '{{random("Intern", "Manager", "Trainee", "Executive Underwriter", "AVP Underwriter", "Underwriter")}}'
 
   }
 ]

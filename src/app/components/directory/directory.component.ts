@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {Employees} from '../../../assets/data/employees';
 import { Employee } from 'src/app/models/Employee';
 import {departments, lobs, regions, titles} from '../../../assets/data/dropdown-data'
-import { NgForm } from '@angular/forms';
 
 declare var $: any;
 
@@ -21,7 +20,6 @@ export class DirectoryComponent implements OnInit {
   public currentEmployee: Employee;
 
   constructor() {
-    console.log(this.employees);
     for (let i = 0; i < this.employees.length; i++) {
       if (this.employees[i].imgUrl === undefined) {
         this.employees[i].imgUrl = '../../../assets/avatars/avatar (' + this.getNumber() + ').png';
